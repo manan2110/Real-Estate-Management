@@ -112,8 +112,25 @@ def sellersAgent(request, username):
         no.append(a.o_id)
 
     sellers = Owner.objects.filter(id__in=no)
+
+    if request.method == "POST":
+        id = request.POST["owner_id"]
+        fname = request.POST["firstname"]
+        lname = request.POST["lastname"]
+        email = request.POST["email"]
+        contact = request.POST["contact"]
+        if id is not None and id != "":
+            sellers = sellers.filter(id=id)
+        if contact is not None and contact != "":
+            sellers = sellers.filter(contact=contact)
+        if email is not None and email != "":
+            sellers = sellers.filter(email=email)
+        if fname is not None and fname != "":
+            sellers = sellers.filter(firstname=fname)
+        if lname is not None and lname != "":
+            sellers = sellers.filter(lastname=lname)
     count = sellers.count()
-    return render(request, 'sellers.html', {'sellers': sellers, 'count': count})
+    return render(request, 'sellers_agent.html', {'sellers': sellers, 'count': count, 'username': username})
 
 
 def buyers(request):
@@ -153,18 +170,82 @@ def buyersAgent(request, username):
         no.append(a.b_id)
 
     buyers = Buyer.objects.filter(id__in=no)
+
+    if request.method == "POST":
+        id = request.POST["buyer_id"]
+        fname = request.POST["firstname"]
+        lname = request.POST["lastname"]
+        email = request.POST["email"]
+        contact = request.POST["contact"]
+        if id is not None and id != "":
+            buyers = buyers.filter(id=id)
+        if contact is not None and contact != "":
+            buyers = buyers.filter(contact=contact)
+        if email is not None and email != "":
+            buyers = buyers.filter(email=email)
+        if fname is not None and fname != "":
+            buyers = buyers.filter(firstname=fname)
+        if lname is not None and lname != "":
+            buyers = buyers.filter(lastname=lname)
     count = buyers.count()
-    return render(request, 'buyers.html', {'buyers': buyers, 'count': count})
+    return render(request, 'buyers_agent.html', {'buyers': buyers, 'count': count, 'username': username})
 
 
-def availablePropertyAgent(request, username):
+def PropertyAgent(request, username):
     properties = Property.objects.filter(p_status='A')
     user = Login.objects.filter(username=username).first()
     # print(user.a.id)
     properties = properties.filter(a_id=user.a.id)
     # print(properties.values())
+    if request.method == "POST":
+        p_id = request.POST["property_id"]
+        date = request.POST["date"]
+        size = request.POST["size"]
+        status = request.POST["status"]
+        type = request.POST["type"]
+        aid = request.POST["agent_id"]
+        oid = request.POST["owner_id"]
+        tag = request.POST["tag"]
+        bhk = request.POST["bhk"]
+        mini = request.POST["minprice"]
+        maxi = request.POST["maxprice"]
+        if p_id != "" and p_id is not None:
+            properties = properties.filter(id=p_id)
+        if date != "" and date is not None:
+            properties = properties.filter(l_date=date)
+        if size != "" and size is not None:
+            properties = properties.filter(p_size__gte=size)
+        if mini != "" and mini is not None:
+            properties = properties.filter(p_sug_price__gte=mini)
+        if maxi != "" and maxi is not None:
+            properties = properties.filter(p_sug_price__lte=maxi)
+        if bhk != "" and bhk is not None:
+            properties = properties.filter(bhk__gte=bhk)
+        if aid != "" and aid is not None:
+            properties = properties.filter(a_id=aid)
+        if oid != "" and oid is not None:
+            properties = properties.filter(o_id=oid)
+        if aid != "" and aid is not None:
+            properties = properties.filter(a_id=aid)
+        if status != "" and status is not None:
+            if status == "Available":
+                properties = properties.filter(p_status='A')
+            else:
+                properties = properties.filter(p_status='N')
+        if type != "" and type is not None:
+            if type == "Flat":
+                properties = properties.filter(p_type='F')
+            elif type == "House":
+                properties = properties.filter(p_type='H')
+            else:
+                properties = properties.filter(p_type='A')
+        if tag != "" and tag is not None:
+            if tag == "For Sale":
+                properties = properties.filter(p_tag='S')
+            else:
+                properties = properties.filter(p_tag='R')
     count = properties.count()
-    return render(request, 'available_property.html', {'properties': properties, 'count': count})
+    return render(request, 'property_agent.html', {'properties': properties, 'count': count, 'username': username})
 
 
 def Properties(request):
@@ -262,6 +343,14 @@ class AddBuyer(CreateView):
     success_url = reverse_lazy('buyers')
 
 
+class AddBuyer(CreateView):
+    model = Buyer
+    form_class = BuyerForm
+    template_name = 'add_buyer.html'
+    # fields = '__all__'
+    success_url = reverse_lazy('buyers')
+
+
 class AddSeller(CreateView):
     model = Owner
     form_class = OwnerForm
@@ -283,7 +372,7 @@ class AddProperty(CreateView):
     form_class = PropertyForm
     template_name = 'add_property.html'
     # fields = '__all__'
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('off_home')
 
     # def get_context_data(self, *args, **kwargs):
     #     # cat_menu = Category.objects.all()
@@ -301,14 +390,36 @@ def TransactionSaleAgent(request, username):
     user = Login.objects.filter(username=username).first()
     # print(user.a.id)
     sales = sales.filter(a_id=user.a.id)
+    amount = 0
+    for x in sales:
+        amount += x.sell_price
     count = sales.count()
-    return render(request, 'tran_sale.html', {'sales': sales, 'count': count})
+    return render(request, 'tran_sale.html', {'sales': sales, 'count': count, 'username': username, 'amount': amount})
 
 
 def TransactionRentAgent(request, username):
-    rent = TranRent.objects.all()
+    rents = TranRent.objects.all()
     user = Login.objects.filter(username=username).first()
     # print(user.a.id)
-    rent = rent.filter(a_id=user.a.id)
-    count = rent.count()
-    return render(request, 'tran_rent.html', {'rents': rent, 'count': count})
+    rents = rents.filter(a_id=user.a.id)
+    amount = 0
+    for x in rents:
+        amount += x.rent
+    count = rents.count()
+    return render(request, 'tran_rent.html', {'rents': rents, 'count': count, 'username': username, 'amount': amount})
+
+
+class AddTransactionRent(CreateView):
+    model = TranRent
+    form_class = TransactionRentForm
+    template_name = 'add_transaction_rent.html'
+    # fields = '__all__'
+    success_url = reverse_lazy('off_home')
+
+
+class AddTransactionSale(CreateView):
+    model = TranRent
+    form_class = TransactionSaleForm
+    template_name = 'add_transaction_sale.html'
+    # fields = '__all__'
+    success_url = reverse_lazy('off_home')

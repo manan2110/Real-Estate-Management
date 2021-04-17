@@ -68,3 +68,15 @@ class PropertyForm(forms.ModelForm):
         #     'a': forms.TextInput(attrs={'value': '', 'id': 'abc', 'type': 'hidden'}),
         #     'o': forms.Select(choices=Owners),
         # }
+
+
+class TransactionSaleForm(forms.ModelForm):
+    class Meta:
+        model = TranSale
+        fields = '__all__'
+
+
+class TransactionRentForm(forms.ModelForm):
+    class Meta:
+        model = TranRent
+        fields = '__all__'

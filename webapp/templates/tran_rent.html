@@ -44,6 +44,12 @@
             </tbody>
         </table>
         Total Transactions : {{ count }}
+        <br>
+        Amount of Rent (Monthly) : {{ amount }}
+        <div style="margin-top: 20px;">
+            <a class="btn btn-primary col-3 mt-20" style="margin-right: 50px;" href="{% url 'AddTranRent' %}">Add
+                Transaction for rent</a>
+        </div>
     </div>
 </body>
 

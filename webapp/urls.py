@@ -21,19 +21,16 @@ urlpatterns = [
     # for a particluar agent
     path('buyers/<str:username>/', views.buyersAgent, name="buyersAgent"),
     path('sellers/<str:username>/', views.sellersAgent, name="sellersAgent"),
-    path('availabe_properties/<str:username>/',
-         views.availablePropertyAgent, name="availablePropertyAgent"),
-    path('rented_properties/<str:username>/',
-         views.rentedPropertyAgent, name="rentedPropertyAgent"),
-    path('sold_properties/<str:username>/',
-         views.SoldPropertyAgent, name="soldPropertyAgent"),
+    path('properties/<str:username>/',
+         views.PropertyAgent, name="PropertyAgent"),
     path('add_property',
          views.AddProperty.as_view(), name="AddProperty"),
     path('tran_sale/<str:username>/',
          views.TransactionSaleAgent, name="soldByAgent"),
     path('tran_rent/<str:username>/',
          views.TransactionRentAgent, name="rentedByAgent"),
-
-    #     url(r'^add_property/(?P<username>\d+)/$',
-    #         views.AddProperty.as_view(), name='AddProperty')
+    path('add_tran_rent',
+         views.AddTransactionRent.as_view(), name="AddTranRent"),
+    path('add_tran_sale',
+         views.AddTransactionSale.as_view(), name="AddTranSale"),
 ]

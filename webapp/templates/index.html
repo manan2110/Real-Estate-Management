@@ -17,19 +17,15 @@
     <div style="margin-top: 70px;">
         <a class="btn  btn-primary col-3" style="margin: 50px;" href="{% url 'buyersAgent' username %}">Buyers</a>
         <a class="btn  btn-primary col-3" style="margin: 50px;" href="{% url 'sellersAgent' username %}">Sellers</a>
-        <a class="btn  btn-primary col-3" style="margin: 50px;"
-            href="{% url 'rentedPropertyAgent' username %}">Properties Rented</a>
-        <a class="btn  btn-primary col-3" style="margin: 50px;" href="{% url 'soldPropertyAgent' username %}">Properties
-            Sold</a>
-        <a class="btn  btn-primary col-3" style="margin: 50px;"
-            href="{% url 'availablePropertyAgent' username %}">Available
-            Properties</a>
+        <a class="btn  btn-primary col-3" style="margin: 50px;" href="{% url 'PropertyAgent' username %}">Properties</a>
         <a class="btn  btn-primary col-3" style="margin: 50px;" href="{% url 'AddProperty' %}">Add
             Property</a>
-        <a class="btn  btn-primary col-3" style="margin: 50px;" href="{% url 'soldByAgent' username %}">Sale Transactions
-                </a>
-        <a class="btn  btn-primary col-3" style="margin: 50px;" href="{% url 'rentedByAgent' username %}">Rent Transactions
-                </a>
+        <a class="btn  btn-primary col-3" style="margin: 50px;" href="{% url 'soldByAgent' username %}">Sale
+            Transactions
+        </a>
+        <a class="btn  btn-primary col-3" style="margin: 50px;" href="{% url 'rentedByAgent' username %}">Rent
+            Transactions
+        </a>
     </div>
 
 </body>

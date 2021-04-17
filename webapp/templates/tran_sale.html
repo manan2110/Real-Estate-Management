@@ -44,6 +44,12 @@
             </tbody>
         </table>
         Total Transactions : {{ count }}
+        <br>
+        Total Amount Earned: {{ amount }}
+        <div style="margin-top: 20px;">
+            <a class="btn btn-primary col-3 mt-20" style="margin-right: 50px;" href="{% url 'AddTranSale' %}">Add
+                Transaction for sale</a>
+        </div>
     </div>
 </body>
 
