@@ -18,8 +18,50 @@
             <input class="btn btn-primary" type="button" value="Go back!" onclick="history.back()">
         </form>
         <h5 style="margin-top: 50px;">Owner Table</h5>
+        <form method="POST" style="margin-top: 40px;" action="{% url 'sellers' %}">
+            {% csrf_token %}
+            <div class="row g-3 align-items-center">
+                <div class="col-auto">
+                    <input type="number" placeholder="Owner Id" class="vIntegerField" name="owner_id"
+                        class="form-control">
+                </div>
 
-        <table class="table">
+
+                <div class="col-auto">
+                    <span>
+                        <input type="text" placeholder="Firstname" name="firstname" id="inputfirstname"
+                            class="form-control">
+                    </span>
+                </div>
+
+                <div class="col-auto">
+                    <span>
+                        <input type="text" placeholder="Lastname" name="lastname" id="inputlastname"
+                            class="form-control">
+                    </span>
+                </div>
+
+                <div class="col-auto">
+                    <span>
+                        <input type="email" placeholder="Email" name="email" id="inputemail" class="form-control">
+                    </span>
+                </div>
+                <div class="col-auto">
+                    <span>
+                        <input type="number" placeholder="Contact" name="contact">
+                    </span>
+                </div>
+                <div class="col-auto">
+                    <span>
+                        <button class="btn-primary btn" type="submit">
+                            Search
+                        </button>
+                    </span>
+                </div>
+
+            </div>
+        </form>
+        <table class="table" style="margin-top: 40px;">
             <thead>
                 <tr>
                     <th scope="col">Id</th>

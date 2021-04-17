@@ -13,6 +13,9 @@
 <body style="margin: 20px;">
     <div>
         <h2>Sign-Up</h2>
+        <form style="margin-bottom: 20px; margin-top: 20px;">
+            <input class="btn btn-primary" type="button" value="Go back!" onclick="history.back()">
+        </form>
         <div class="form-group">
             <form method="POST">
                 {% csrf_token %}
