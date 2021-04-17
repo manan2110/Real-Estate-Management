@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- Custom styles for this template -->
+</head>
+
+<body class="text-center">
+    <div style="margin-top: 210px;">
+        <h1>Select Your Administrative Powers</h1>
+    </div>
+    <div style="margin-top: 70px;">
+        <div>
+            <a class="btn btn-lg btn-primary col-3 mt-20" style="margin-right: 50px;" href="{% url 'login' %}">Agent</a>
+            <a class="btn btn-lg btn-primary col-3 mt-20" style="margin-left: 50px;"
+                href="{% url 'off_login' %}">Office</a>
+        </div>
+    </div>
+</body>
+
+</html>
