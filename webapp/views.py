@@ -255,6 +255,7 @@ def Properties(request):
         date = request.POST["date"]
         size = request.POST["size"]
         status = request.POST["status"]
+        address = request.POST["address"]
         type = request.POST["type"]
         aid = request.POST["agent_id"]
         oid = request.POST["owner_id"]
@@ -297,6 +298,8 @@ def Properties(request):
                 properties = properties.filter(p_tag='S')
             else:
                 properties = properties.filter(p_tag='R')
+        if address != "" and address is not None:
+            properties = properties.filter(adress__icontains=address)
 
     count = properties.count()
     return render(request, 'property.html', {'properties': properties, 'count': count})
