@@ -48,7 +48,8 @@
             <div style="margin-right: 300px;">
                 Hello {{ user }}
             </div>
-            <a class="btn btn-primary" href="{% url 'logout' %}" style="position: absolute; right:200px;">Profile</a>
+            <a class="btn btn-primary" href="{% url 'profile' username%}"
+                style="position: absolute; right:200px;">Profile</a>
             <a class="btn btn-primary" href="{% url 'logout' %}" style="position: absolute; right:100px;">Logout</a>
         </div>
     </nav>

@@ -397,7 +397,7 @@ def TransactionSaleAgent(request, username):
     for x in sales:
         amount += x.sell_price
     count = sales.count()
-    return render(request, 'tran_sale.html', {'sales': sales, 'count': count, 'username': username, 'amount': amount})
+    return render(request, 'tran_sale.html', {'user': user.a, 'sales': sales, 'count': count, 'username': username, 'amount': amount})
 
 
 def TransactionRentAgent(request, username):
@@ -409,7 +409,7 @@ def TransactionRentAgent(request, username):
     for x in rents:
         amount += x.rent
     count = rents.count()
-    return render(request, 'tran_rent.html', {'rents': rents, 'count': count, 'username': username, 'amount': amount})
+    return render(request, 'tran_rent.html', {'user': user.a, 'rents': rents, 'count': count, 'username': username, 'amount': amount})
 
 
 class AddTransactionRent(CreateView):
@@ -444,3 +444,5 @@ def profile(request, username):
     for x in sales:
         amountSale += x.sell_price
     countSale = sales.count()
+
+    return render(request, 'profile.html', {'amountRent': amountRent, 'countRent': countRent, 'amountSale': amountSale, 'countSale': countSale, 'username': username, 'user': user.a})
