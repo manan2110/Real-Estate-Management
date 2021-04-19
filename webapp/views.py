@@ -192,7 +192,7 @@ def buyersAgent(request, username):
 
 
 def PropertyAgent(request, username):
-    properties = Property.objects.filter(p_status='A')
+    properties = Property.objects.all()
     user = Login.objects.filter(username=username).first()
     # print(user.a.id)
     properties = properties.filter(a_id=user.a.id)
@@ -203,8 +203,8 @@ def PropertyAgent(request, username):
         size = request.POST["size"]
         status = request.POST["status"]
         type = request.POST["type"]
-        aid = request.POST["agent_id"]
         oid = request.POST["owner_id"]
+        address = request.POST["address"]
         tag = request.POST["tag"]
         bhk = request.POST["bhk"]
         mini = request.POST["minprice"]
@@ -221,12 +221,8 @@ def PropertyAgent(request, username):
             properties = properties.filter(p_sug_price__lte=maxi)
         if bhk != "" and bhk is not None:
             properties = properties.filter(bhk__gte=bhk)
-        if aid != "" and aid is not None:
-            properties = properties.filter(a_id=aid)
         if oid != "" and oid is not None:
             properties = properties.filter(o_id=oid)
-        if aid != "" and aid is not None:
-            properties = properties.filter(a_id=aid)
         if status != "" and status is not None:
             if status == "Available":
                 properties = properties.filter(p_status='A')
@@ -244,6 +240,8 @@ def PropertyAgent(request, username):
                 properties = properties.filter(p_tag='S')
             else:
                 properties = properties.filter(p_tag='R')
+        if address != "" and address is not None:
+            properties = properties.filter(adress__icontains=address)
     count = properties.count()
     return render(request, 'property_agent.html', {'user': user.a, 'properties': properties, 'count': count, 'username': username})
 
