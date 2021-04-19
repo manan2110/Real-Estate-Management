@@ -33,4 +33,6 @@ urlpatterns = [
          views.AddTransactionRent.as_view(), name="AddTranRent"),
     path('add_tran_sale',
          views.AddTransactionSale.as_view(), name="AddTranSale"),
+    path('profile/<str:username>/',
+         views.TransactionRentAgent, name="profile"),
 ]

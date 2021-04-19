@@ -12,7 +12,42 @@
 
 <body style="margin: 20px;">
     <div>
-        <h2>Agents</h2>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <div style="font-size: 1.5em">
+                    Real-Estate-Management-System
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav" style="margin-left: 80px;">
+                    <ul class="navbar-nav" style="margin-left: 20px;">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="{% url 'off_home' %}">Home</a>
+                        </li>
+                        <li class="nav-item" style="margin-left: 20px;">
+                            <a class="nav-link" href="{% url 'buyers' %}">Buyers</a>
+                        </li>
+                        <li class="nav-item" style="margin-left: 20px;">
+                            <a class="nav-link" href="{% url 'sellers' %}">Owners</a>
+                        </li>
+                        <li class="nav-item" style="margin-left: 20px;">
+                            <a class="nav-link" href="{% url 'agents' %}">Agents</a>
+                        </li>
+                        <li class="nav-item" style="margin-left: 20px;">
+                            <a class="nav-link" href="{% url 'Property' %}">Properties</a>
+                        </li>
+                    </ul>
+                </div>
+                <div style="margin-right: 240px;">
+                    Hello Office User
+                </div>
+                <a class="btn btn-primary" href="{% url 'logout' %}" style="position: absolute; right:100px;">Logout</a>
+            </div>
+        </nav>
+        <h2 style="margin-top: 40px;">Agents</h2>
         <!-- <a class="btn btn-primary" style="margin-top: 30px;" href="{% url 'off_home' %}">Back</a> -->
         <form style="margin-top: 20px;">
             <input class="btn btn-primary" type="button" value="Go back!" onclick="history.back()">

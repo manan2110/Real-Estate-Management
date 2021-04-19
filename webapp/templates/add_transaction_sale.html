@@ -15,8 +15,8 @@
         <form style="margin-bottom: 20px;">
             <input class="btn btn-primary" type="button" value="Go back!" onclick="history.back()">
         </form>
-        <h2>Transaction for sale</h2>
-        <div class="form-group">
+        <h2 style="margin-top: 40px;">Transaction for sale</h2>
+        <div class="form-group" style="margin-top: 40px;">
             <form method="POST">
                 {% csrf_token %}
                 {{ form.as_p }}

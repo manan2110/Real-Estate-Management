@@ -130,7 +130,7 @@ def sellersAgent(request, username):
         if lname is not None and lname != "":
             sellers = sellers.filter(lastname=lname)
     count = sellers.count()
-    return render(request, 'sellers_agent.html', {'sellers': sellers, 'count': count, 'username': username})
+    return render(request, 'sellers_agent.html', {'user': user.a, 'sellers': sellers, 'count': count, 'username': username})
 
 
 def buyers(request):
@@ -188,7 +188,7 @@ def buyersAgent(request, username):
         if lname is not None and lname != "":
             buyers = buyers.filter(lastname=lname)
     count = buyers.count()
-    return render(request, 'buyers_agent.html', {'buyers': buyers, 'count': count, 'username': username})
+    return render(request, 'buyers_agent.html', {'user': user.a, 'buyers': buyers, 'count': count, 'username': username})
 
 
 def PropertyAgent(request, username):
@@ -245,7 +245,7 @@ def PropertyAgent(request, username):
             else:
                 properties = properties.filter(p_tag='R')
     count = properties.count()
-    return render(request, 'property_agent.html', {'properties': properties, 'count': count, 'username': username})
+    return render(request, 'property_agent.html', {'user': user.a, 'properties': properties, 'count': count, 'username': username})
 
 
 def Properties(request):
@@ -312,7 +312,7 @@ def rentedPropertyAgent(request, username):
     properties = properties.filter(a_id=user.a.id)
     properties = properties.filter(p_tag='R')
     count = properties.count()
-    return render(request, 'rented_property.html', {'properties': properties, 'count': count})
+    return render(request, 'rented_property.html', {'user': user.a, 'properties': properties, 'count': count})
 
 
 def SoldPropertyAgent(request, username):
@@ -322,7 +322,7 @@ def SoldPropertyAgent(request, username):
     properties = properties.filter(a_id=user.a.id)
     properties = properties.filter(p_tag='S')
     count = properties.count()
-    return render(request, 'sold_property.html', {'properties': properties, 'count': count})
+    return render(request, 'sold_property.html', {'user': user.a, 'properties': properties, 'count': count})
 
 
 def logoutUser(request):
@@ -416,13 +416,31 @@ class AddTransactionRent(CreateView):
     model = TranRent
     form_class = TransactionRentForm
     template_name = 'add_transaction_rent.html'
-    # fields = '__all__'
-    success_url = reverse_lazy('off_home')
+    #fields = '__all__'
+    success_url = reverse_lazy('login')
 
 
 class AddTransactionSale(CreateView):
-    model = TranRent
+    model = TranSale
     form_class = TransactionSaleForm
     template_name = 'add_transaction_sale.html'
-    # fields = '__all__'
-    success_url = reverse_lazy('off_home')
+    #fields = '__all__'
+    success_url = reverse_lazy('login')
+
+
+def profile(request, username):
+    user = Login.objects.filter(username=username).first()
+
+    rents = TranRent.objects.all()
+    rents = rents.filter(a_id=user.a.id)
+    amountRent = 0
+    for x in rents:
+        amountRent += x.rent
+    countRent = rents.count()
+
+    amountSale = 0
+    sales = TranSale.objects.all()
+    sales = sales.filter(a_id=user.a.id)
+    for x in sales:
+        amountSale += x.sell_price
+    countSale = sales.count()
