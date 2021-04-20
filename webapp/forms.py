@@ -3,6 +3,23 @@ from .models import *
 
 Owners = Owner.objects.all().values_list('id', 'id')
 
+properties_for_rent = Property.objects.filter(
+    p_status='A').filter(p_tag='R')
+
+
+properties_for_sale = Property.objects.filter(
+    p_status='A').filter(p_tag='S').values_list('id', 'id')
+
+print(properties_for_rent)
+
+choice_list1 = []
+for item in properties_for_rent:
+    choice_list1.append(item)
+
+choice_list2 = []
+for item in properties_for_sale:
+    choice_list2.append(item)
+
 
 class AgentForm(forms.ModelForm):
     class Meta:
