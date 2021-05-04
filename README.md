@@ -55,7 +55,7 @@ Upon Signing in as a Officer , the office user can see all the agents, propertie
 
 ![Alt text]( ./pictures/Office-Agents.png "Agents page of office user")
 
-<a href = "https://github.com/Tanu-N-Prabhu/Python/graphs/contributors">
+<a href = "https://github.com/manan2110/Real-Estate-Management/graphs/contributors">
   <img src = "https://contrib.rocks/image?repo = manan2110/Real-Estate-Management"/>
 </a>
 
