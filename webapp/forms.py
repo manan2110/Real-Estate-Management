@@ -10,7 +10,7 @@ properties_for_rent = Property.objects.filter(
 properties_for_sale = Property.objects.filter(
     p_status='A').filter(p_tag='S').values_list('id', 'id')
 
-print(properties_for_rent)
+# print(properties_for_rent)
 
 choice_list1 = []
 for item in properties_for_rent:
