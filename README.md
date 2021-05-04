@@ -4,6 +4,7 @@
 This is a django webapp for Real-Estate Management System
 The backend is made on django , MySQL is used to manage the database. And to make the webpages look good and well orgained Bootstrap is used.
 
+`mysql_project.sql` contains the dumped file of the database used in the project. 
 
 ![Alt text]( ./pictures/Select.png "select administrative powers")
 
@@ -52,6 +53,3 @@ Upon Signing in as a Officer , the office user can see all the agents, propertie
 - Office Buyers :-
 
 ![Alt text]( ./pictures/Office-Agents.png "Agents page of office user")
-
-
-`mysql_project.sql` contains the dumped file of the database used in the project. 
