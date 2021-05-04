@@ -6,10 +6,11 @@ The backend is made on django , MySQL is used to manage the database. And to mak
 
 `mysql_project.sql` contains the dumped file of the database used in the project. 
 
-![Alt text]( ./pictures/Select.png "select administrative powers")
-
 
 In the project there are two types of user's a Office user and a Agent.
+
+![Alt text]( ./pictures/Select.png "select administrative powers")
+
 
 ## Agent Interface
 Upon singing in as a agent, the agent can add a property , sell a property or rent a property. The agent can also see the profile, and the Buyers, properties and sellers linked to the the agent. Every page has a option to filter things as required by the agent.
