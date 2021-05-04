@@ -21,19 +21,19 @@ Upon singing in as a agent, the agent can add a property , sell a property or re
 
 - Agent Home :-
 
-![Alt text]( ./pictures/Agent-SignIn.png "home page of agent")
+![Alt text]( ./pictures/Agent-Home.png "home page of agent")
 
 - Agent Buyers :-
 
-![Alt text]( ./pictures/Agent-SignIn.png "buyers page of agent")
+![Alt text]( ./pictures/Agent-Buyers.png "buyers page of agent")
 
 - Agent Properties :-
 
-![Alt text]( ./pictures/Agent-SignIn.png "properties page of agent")
+![Alt text]( ./pictures/Agent-Properties.png "properties page of agent")
 
 - Agent Profile :-
 
-![Alt text]( ./pictures/Agent-SignIn.png "profile page of agent")
+![Alt text]( ./pictures/Agent-Profile.png "profile page of agent")
 
 
 ## Office Interface
