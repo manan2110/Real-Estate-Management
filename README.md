@@ -17,25 +17,15 @@ Upon singing in as a agent, the agent can add a property , sell a property or re
 
 **The Agent Interface looks like :**
 
-- Agent Sign-In :-
+- Agent Sign-In :- ![Alt text]( ./pictures/Agent-SignIn.png "sign in page of agent")
 
-![Alt text]( ./pictures/Agent-SignIn.png "sign in page of agent")
+- Agent Home :- ![Alt text]( ./pictures/Agent-Home.png "home page of agent")
 
-- Agent Home :-
+- Agent Buyers :- ![Alt text]( ./pictures/Agent-Buyers.png "buyers page of agent")
 
-![Alt text]( ./pictures/Agent-Home.png "home page of agent")
+- Agent Properties :- ![Alt text]( ./pictures/Agent-Properties.png "properties page of agent")
 
-- Agent Buyers :-
-
-![Alt text]( ./pictures/Agent-Buyers.png "buyers page of agent")
-
-- Agent Properties :-
-
-![Alt text]( ./pictures/Agent-Properties.png "properties page of agent")
-
-- Agent Profile :-
-
-![Alt text]( ./pictures/Agent-Profile.png "profile page of agent")
+- Agent Profile :- ![Alt text]( ./pictures/Agent-Profile.png "profile page of agent")
 
 
 ## Office Interface
@@ -43,17 +33,11 @@ Upon Signing in as a Officer , the office user can see all the agents, propertie
 
 **The Office Interface Looks like:**
 
-- Office Sign-In :-
+- Office Sign-In :- ![Alt text]( ./pictures/Office-SignIn.png "sign in page of office user")
 
-![Alt text]( ./pictures/Office-SignIn.png "sign in page of office user")
+- Office Home :- ![Alt text]( ./pictures/Office-Home.png "Home page of office user")
 
-- Office Home :-
-
-![Alt text]( ./pictures/Office-Home.png "Home page of office user")
-
-- Office Buyers :-
-
-![Alt text]( ./pictures/Office-Agents.png "Agents page of office user")
+- Office Buyers :- ![Alt text]( ./pictures/Office-Agents.png "Agents page of office user")
 
 ## Contributors
 <a href="https://github.com/manan2110/Real-Estate-Management/graphs/contributors">
