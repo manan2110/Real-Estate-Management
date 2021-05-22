@@ -41,6 +41,5 @@ Upon Signing in as a Officer , the office user can see all the agents, propertie
 
 ## Contributors
 <a href="https://github.com/manan2110/Real-Estate-Management/graphs/contributors">
-  <a href="https://github.com/sanjuli18/Real-Estate-Management/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=manan2110/Real-Estate-Management" />
 </a>
