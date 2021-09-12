@@ -13,7 +13,7 @@ In the project there are two types of user's a Office user and a Agent.
 
 
 ## Agent Interface
-Upon singing in as a agent, the agent can add a property , sell a property or rent a property. The agent can also see the profile, and the Buyers, properties and sellers linked to the the agent. Every page has a option to filter things as required by the agent.
+Upon singing in as an agent, the agent can add a property , sell a property or rent a property. The agent can also see the profile, and the Buyers, properties and sellers linked to the the agent. Every page has a option to filter things as required by the agent.
 
 **The Agent Interface looks like :**
 
@@ -39,7 +39,7 @@ Upon Signing in as a Officer , the office user can see all the agents, propertie
 
 - Office Buyers :- ![Alt text]( ./pictures/Office-Agents.png "Agents page of office user")
 
-## Contributors
+## Made With :heart: by :-
 <a href="https://github.com/manan2110/Real-Estate-Management/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=manan2110/Real-Estate-Management" />
 </a>
